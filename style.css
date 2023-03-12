@@ -1,0 +1,131 @@
+*
+{
+    box-sizing: border-box;
+}
+#nav
+{
+    background-color: rgb(0,0,0, 0.22);
+    text-align: center;
+    width: 100%;
+    padding: 0;
+    top: 0;
+    position: fixed;  
+    line-height: 50px;
+}
+#nav ul
+{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 8fr;
+}
+#nav ul li
+{
+    text-decoration: none;
+}
+#glowna
+{
+    font-size: 1.5rem;
+    color: white;
+	text-align: center;
+	vertical-align: middle;
+    text-shadow: 1px 1px 1px black;
+    grid-column-start: 1;
+    position: relative;
+}
+#glowna:hover
+{
+    background-color: rgb(22,22,22);
+    transition: 200ms ease-in-out;
+}
+#glowna a
+{
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+#menu
+{
+    font-size: 1.5rem;
+    color: white;
+	text-align: center;
+	vertical-align: middle;
+    text-shadow: 1px 1px 1px black;
+    grid-column-start: 2;
+    position: relative;
+    transition: 200ms ease-in-out;
+}
+#menu:hover
+{
+    background-color: rgb(22,22,22);
+    transition: 200ms ease-in-out;
+}
+#menu ul li:hover
+{
+    background-color: rgb(44,44,44);
+}
+#menu ul li a
+{
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+#menu ul
+{
+    background-color: rgb(22,22,22);
+    position: absolute;
+    font-size: 20px;
+    width: 100%;
+    line-height: 2rem;
+    text-align: left;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+#menu ul:hover
+{
+    display: block;
+}
+#menu:hover ul
+{
+    display: block;
+}
+#tekst
+{
+    background-color: rgb(0,0,0, 0.22);
+    text-shadow: 1px 1px 1px black;
+    color: rgb(225,225,225);
+    font-size: 1.1rem;
+    max-width: 1200px;
+    /*border: solid 1px #1b2727;*/
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 1%;
+	border-radius: 8px;
+    scroll-behavior: smooth;
+    line-height: 1.4;
+}
+#tekstIn
+{
+    padding: 2%;
+	text-align: justify;
+}
+body
+{
+    background: linear-gradient(-45deg, rgb(27,36,59), rgb(25,33,53));
+    margin: 0px;
+    background-attachment: fixed;
+    font-family: sans-serif;
+}
+#tekstIn h1
+{
+    text-align: center;
+    margin: 0px;
+    margin-bottom: 2%;
+}
