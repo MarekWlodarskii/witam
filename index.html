@@ -76,9 +76,31 @@
 			document.getElementById("Symbol").addEventListener("click", Symbol)
 			document.getElementById("Reset").addEventListener("click", resetuj)
 			
+			
+			
 			for(let i = 0; i<gameArea.length; i++)
 			{
 				gameArea[i].addEventListener("click", klik)
+				gameArea[i].addEventListener("mouseenter", CurrentStateME)
+				gameArea[i].addEventListener("mouseleave", CurrentStateML)
+			}
+			
+
+			
+			function CurrentStateME(x)
+			{
+				if(currentState[x.target.id]==""&&Wygrana()==false && Remis() == false)
+				{
+					x.target.style.backgroundColor="rgb(255,33,53)"
+				}
+			}
+			
+			function CurrentStateML(x)
+			{
+				if(Wygrana()==false && Remis() == false)
+				{
+					x.target.style.backgroundColor=""
+				}
 			}
 			
 			// Ustawienia vs PC, albo vs Gracz
@@ -165,7 +187,8 @@
 				{
 					if(currentSymbol==1)
 					{
-					moves++
+						CurrentStateML(x)
+						moves++
 						x.target.innerText = "O"
 						currentState[y] = 1
 						if((won = Wygrana())==false)
@@ -183,6 +206,7 @@
 					}
 					else
 					{
+						CurrentStateML(x)
 						moves++
 						x.target.innerText = "X"
 						currentState[y] = -1
@@ -212,7 +236,7 @@
 					{
 						for(let j=0; j<winPossibilities[0].length; j++)
 						{
-							document.getElementById(winPossibilities[i][j]).style.backgroundColor="red"
+							document.getElementById(winPossibilities[i][j]).style.backgroundColor="rgb(255,33,53)"
 						}
 						if(versus==1)
 						{
