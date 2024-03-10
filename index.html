@@ -339,6 +339,7 @@
 								{
 									currentState[winPossibilities[i][2]] = currentSymbol*(-1)
 									document.getElementById(winPossibilities[i][2]).innerText=symbol
+									won = Wygrana()
 									return;
 								}
 							}
@@ -357,6 +358,7 @@
 								{
 									currentState[winPossibilities[i][0]] = currentSymbol*(-1)
 									document.getElementById(winPossibilities[i][0]).innerText=symbol
+									won = Wygrana()
 									return;
 								}
 							}
@@ -375,6 +377,7 @@
 								{
 									currentState[winPossibilities[i][1]] = currentSymbol*(-1)
 									document.getElementById(winPossibilities[i][1]).innerText=symbol
+									won = Wygrana()
 									return;
 								}
 							}
