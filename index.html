@@ -322,15 +322,23 @@
 					
 					if(difficulty > 0 && moves > 1) // Wygraj/blokuj jezeli masz mozliwosc
 					{
+					
+						let blockable = false // Zeby przeanalizowal wszystkie mozliwosci czy PC moze wygrac, jezeli nie ma zadnego takiego ustawienia to blokuj
+						let putSign = 0
+						let whichWinPossibility = 0
+						
 						for(let i =0; i<winPossibilities.length; i++)
 						{
-						
+							let i0 = 0
+							let i1 = 1
+							let i2 = 2
+							
 							for(let j = 0; j < winPossibilities[i].length; j++)
 							{
 								
-								let i0 = j
-								let i1 = j+1
-								let i2 = j+2
+								i0 = j
+								i1 = j+1
+								i2 = j+2
 								if(j == 2)
 								{
 									i1 = 0
@@ -354,15 +362,25 @@
 									}
 									else if(difficulty == 2 && currentState[winPossibilities[i][i0]] == currentSymbol)
 									{
-										currentState[winPossibilities[i][i2]] = currentSymbol*(-1)
-										document.getElementById(winPossibilities[i][i2]).innerText=symbol
-										won = Wygrana()
-										return;
+										blockable = true
+										putSign = i2
+										whichWinPossibility = i
 									}
 								}
 							}
+							
+							
 								
 						}
+						
+						if(blockable == true)
+							{
+								currentState[winPossibilities[whichWinPossibility][putSign]] = currentSymbol*(-1)
+								document.getElementById(winPossibilities[whichWinPossibility][putSign]).innerText=symbol
+								won = Wygrana()
+								return;
+							}
+						
 					}
 
 					
