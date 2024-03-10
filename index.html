@@ -31,7 +31,11 @@
 			</div>
 			<div id="tekstR">
 				<div class="Komunikat">Gra w kolko i krzyzyk</div>
+				<div class="tttMenu" style="border-left: 2px solid black; border-top: 2px solid black;">Tryb Gry</div>
+				<div class="tttMenu" style="border: 2px solid black;">Poziom Trudności</div>
+				<div class="tttMenu" style="border-right: 2px solid black; border-top: 2px solid black;">Symbol</div>
 				<button class="tttMenu" id="Vs">Gracz vs PC</button>
+				<button class="tttMenu" id="Difficulty">Easy</button>
 				<button class="tttMenu" id="Symbol">Grasz jako O</button>
 				<button class="tttMenu" id="Reset">Reset</button>
 				<div class="Komunikat" id="Komunikat"></div>
@@ -46,17 +50,10 @@
 				<button class="pole" id="8"></button>
 			</div>
 			<div id="tekstB">
-				<h1>Lorem Ipsum</h1>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				<h1>Poziomy trudności</h1>
+				<h2>Easy</h2> - PC gra zupełnie losowo<br/>
+				<h2>Normal</h2> - PC zaczyna na srodku, lub w kącie, jeżeli środek był zajęty. Jeżeli ma możliwość, wygrywa grę. W pozostałych przypadkach klika losowo.<br/>
+				<h2>Hard</h2> - PC zaczyna na srodku, lub w kącie, jeżeli środek był zajęty. Jeżeli ma możliwość, wygrywa grę, jeżeli nie to blokuje wygraną gracza. W pozostałych przypadkach klika losowo.<br/>
 			</div>
         </div>
 		
@@ -64,6 +61,8 @@
 			let gameArea = document.getElementsByClassName("pole") // Pole do gry, 9 buttonow
 			let currentState = Array(gameArea.length).fill(0) // Plansza do gry
 			const winPossibilities = [[0,1,2], [3,4,5],[6,7,8],[0,3,6],[1,4,7], [2,5,8], [0,4,8], [2,4,6]] // Mozliwe wygrane kombinacje
+			const difficulties = ['Easy', 'Normal', 'Hard']
+			let difficulty = 0;
 			let won = false // Czy wygrany
 			let currentSymbol = 1 // Aktualny symbol 1 - O, -1 - X
 			let versus = 1 // 1 - gra kontra PC, -1 - gra kontra Gracz
@@ -73,6 +72,7 @@
 			// Listenery do buttonow
 			
 			document.getElementById("Vs").addEventListener("click", Vs)
+			document.getElementById("Difficulty").addEventListener("click", ChangeDifficulty)
 			document.getElementById("Symbol").addEventListener("click", Symbol)
 			document.getElementById("Reset").addEventListener("click", resetuj)
 			
@@ -114,6 +114,8 @@
 					if(versus == 1)
 					{
 						x.target.innerText = "Gracz vs PC"
+						document.getElementById("Difficulty").innerText=difficulties[0];
+						difficulty = 0;
 						resetuj()
 						document.getElementById("Symbol").innerText="Grasz jako O"
 					}
@@ -121,10 +123,33 @@
 					{
 						x.target.innerText = "Gracz vs Gracz"
 						document.getElementById("Symbol").innerText="-"
+						document.getElementById("Difficulty").innerText="-"
 						currentSymbol = 1
 						resetuj()
 					}
 				}
+			}
+			
+			function ChangeDifficulty(x)
+			{
+				if(versus == -1 || moves > 0)
+				{
+					return;
+				}
+				for(let i=0; i<difficulties.length-1; i++)
+				{
+					if(difficulties[i] == x.target.innerText)
+					{
+						x.target.innerText = difficulties[i+1]
+						difficulty = i+1
+						resetuj()
+						return;
+					}
+				}
+				x.target.innerText = difficulties[0]
+				difficulty = 0
+				resetuj()
+				return;
 			}
 			
 			// Zmiana znaku w przypadku gry vs PC
@@ -278,6 +303,86 @@
 					{
 						symbol = "O"
 					}
+					
+					if(difficulty > 0 && moves < 2) // Opener
+					{
+						if((currentSymbol == -1 && moves == 0) || (currentSymbol == 1 && currentState[4] == 0 && moves == 1))
+						{
+							currentState[4]=currentSymbol*(-1)
+							document.getElementById("4").innerText=symbol
+							return;
+						}
+						else if(currentSymbol == 1 && moves == 1)
+						{
+							currentState[0]=currentSymbol*(-1)
+							document.getElementById("0").innerText=symbol
+							return;
+						}
+					}
+					
+					if(difficulty > 0 && moves > 1) // Wygraj/blokuj jezeli masz mozliwosc
+					{
+						for(let i =0; i<winPossibilities.length; i++)
+						{
+							if(
+								currentState[winPossibilities[i][0]] == currentState[winPossibilities[i][1]] && currentState[winPossibilities[i][2]] == 0)
+							{
+								if(
+									currentState[winPossibilities[i][0]] == currentSymbol*(-1))
+								{
+									currentState[winPossibilities[i][2]] = currentSymbol*(-1)
+									document.getElementById(winPossibilities[i][2]).innerText=symbol
+									won = Wygrana()
+									return;
+								}
+								else if(difficulty == 2 && currentState[winPossibilities[i][0]] == currentSymbol)
+								{
+									currentState[winPossibilities[i][2]] = currentSymbol*(-1)
+									document.getElementById(winPossibilities[i][2]).innerText=symbol
+									return;
+								}
+							}
+							if(
+								currentState[winPossibilities[i][1]] == currentState[winPossibilities[i][2]] && currentState[winPossibilities[i][0]] == 0)
+							{
+								if(
+									currentState[winPossibilities[i][1]] == currentSymbol*(-1))
+								{
+									currentState[winPossibilities[i][0]] = currentSymbol*(-1)
+									document.getElementById(winPossibilities[i][0]).innerText=symbol
+									won = Wygrana()
+									return;
+								}
+								else if(difficulty == 2 && currentState[winPossibilities[i][1]] == currentSymbol)
+								{
+									currentState[winPossibilities[i][0]] = currentSymbol*(-1)
+									document.getElementById(winPossibilities[i][0]).innerText=symbol
+									return;
+								}
+							}
+							if(
+								currentState[winPossibilities[i][0]] == currentState[winPossibilities[i][2]] && currentState[winPossibilities[i][1]] == 0)
+							{
+								if(
+									currentState[winPossibilities[i][0]] == currentSymbol*(-1))
+								{
+									currentState[winPossibilities[i][1]] = currentSymbol*(-1)
+									document.getElementById(winPossibilities[i][1]).innerText=symbol
+									won = Wygrana()
+									return;
+								}
+								else if(difficulty == 2 && currentState[winPossibilities[i][2]] == currentSymbol)
+								{
+									currentState[winPossibilities[i][1]] = currentSymbol*(-1)
+									document.getElementById(winPossibilities[i][1]).innerText=symbol
+									return;
+								}
+							}
+								
+						}
+					}
+
+					
 					while(true)
 					{
 						r = Math.floor(Math.random() * 10);
