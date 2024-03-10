@@ -51,9 +51,9 @@
 			</div>
 			<div id="tekstB">
 				<h1>Poziomy trudności</h1>
-				<h2>Easy</h2> - PC gra zupełnie losowo
-				<h2>Normal</h2> - PC zaczyna na srodku, lub w kącie, jeżeli środek był zajęty. Jeżeli ma możliwość, wygrywa grę. W pozostałych przypadkach klika losowo.
-				<h2>Hard</h2> - PC zaczyna na srodku, lub w kącie, jeżeli środek był zajęty. Jeżeli ma możliwość, wygrywa grę, jeżeli nie to blokuje wygraną gracza. W pozostałych przypadkach klika losowo.
+				<h2>Easy</h2> - PC gra zupełnie losowo<br/>
+				<h2>Normal</h2> - PC zaczyna na srodku, lub w kącie, jeżeli środek był zajęty. Jeżeli ma możliwość, wygrywa grę. W pozostałych przypadkach klika losowo.<br/>
+				<h2>Hard</h2> - PC zaczyna na srodku, lub w kącie, jeżeli środek był zajęty. Jeżeli ma możliwość, wygrywa grę, jeżeli nie to blokuje wygraną gracza. W pozostałych przypadkach klika losowo.<br/>
 			</div>
         </div>
 		
@@ -324,61 +324,41 @@
 					{
 						for(let i =0; i<winPossibilities.length; i++)
 						{
-							if(
-								currentState[winPossibilities[i][0]] == currentState[winPossibilities[i][1]] && currentState[winPossibilities[i][2]] == 0)
+						
+							for(let j = 0; j < winPossibilities[i].length; j++)
 							{
+								
+								let i0 = j
+								let i1 = j+1
+								let i2 = j+2
+								if(j == 2)
+								{
+									i1 = 0
+									i2 = 1
+								}
+								else if(j == 1)
+								{
+									i2 = 0
+								}
+								
 								if(
-									currentState[winPossibilities[i][0]] == currentSymbol*(-1))
+								currentState[winPossibilities[i][i0]] == currentState[winPossibilities[i][i1]] && currentState[winPossibilities[i][i2]] == 0)
 								{
-									currentState[winPossibilities[i][2]] = currentSymbol*(-1)
-									document.getElementById(winPossibilities[i][2]).innerText=symbol
-									won = Wygrana()
-									return;
-								}
-								else if(difficulty == 2 && currentState[winPossibilities[i][0]] == currentSymbol)
-								{
-									currentState[winPossibilities[i][2]] = currentSymbol*(-1)
-									document.getElementById(winPossibilities[i][2]).innerText=symbol
-									won = Wygrana()
-									return;
-								}
-							}
-							if(
-								currentState[winPossibilities[i][1]] == currentState[winPossibilities[i][2]] && currentState[winPossibilities[i][0]] == 0)
-							{
-								if(
-									currentState[winPossibilities[i][1]] == currentSymbol*(-1))
-								{
-									currentState[winPossibilities[i][0]] = currentSymbol*(-1)
-									document.getElementById(winPossibilities[i][0]).innerText=symbol
-									won = Wygrana()
-									return;
-								}
-								else if(difficulty == 2 && currentState[winPossibilities[i][1]] == currentSymbol)
-								{
-									currentState[winPossibilities[i][0]] = currentSymbol*(-1)
-									document.getElementById(winPossibilities[i][0]).innerText=symbol
-									won = Wygrana()
-									return;
-								}
-							}
-							if(
-								currentState[winPossibilities[i][0]] == currentState[winPossibilities[i][2]] && currentState[winPossibilities[i][1]] == 0)
-							{
-								if(
-									currentState[winPossibilities[i][0]] == currentSymbol*(-1))
-								{
-									currentState[winPossibilities[i][1]] = currentSymbol*(-1)
-									document.getElementById(winPossibilities[i][1]).innerText=symbol
-									won = Wygrana()
-									return;
-								}
-								else if(difficulty == 2 && currentState[winPossibilities[i][2]] == currentSymbol)
-								{
-									currentState[winPossibilities[i][1]] = currentSymbol*(-1)
-									document.getElementById(winPossibilities[i][1]).innerText=symbol
-									won = Wygrana()
-									return;
+									if(
+									currentState[winPossibilities[i][i0]] == currentSymbol*(-1))
+									{
+										currentState[winPossibilities[i][i2]] = currentSymbol*(-1)
+										document.getElementById(winPossibilities[i][i2]).innerText=symbol
+										won = Wygrana()
+										return;
+									}
+									else if(difficulty == 2 && currentState[winPossibilities[i][i0]] == currentSymbol)
+									{
+										currentState[winPossibilities[i][i2]] = currentSymbol*(-1)
+										document.getElementById(winPossibilities[i][i2]).innerText=symbol
+										won = Wygrana()
+										return;
+									}
 								}
 							}
 								
